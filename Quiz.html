@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="CSS.css">
+		<!-- For Search icon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			#myTable {
+			  border-radius: 5px;
+			  /*background-color: #f2f2f2;*/
+			  padding: 10px;
+			  width:50%;
+			}
+			#myTable td, th {
+				text-align:center;
+				border-radius: 5px;
+			}
+			
+			input[type=button] {
+			  background-color: gray;
+			  color: white;
+			  padding: 14px 20px;
+			  margin: 8px 0;
+			  border: none;
+			  border-radius: 4px;
+			  cursor: pointer;
+			}
+
+			input[type=button]:hover {
+			  background-color: #212F3D;
+			}
+		</style>
+		<script>
+			function startQuiz( form ) {
+				let myTable = document.getElementById('myTable');
+				let score = 0;
+				q1 = parseInt(prompt("What is the newest version of PlayStation?\n1. PS4\n2. PS5\n3. PS6 X\n4. PS7"));
+				q2 = parseInt(prompt("What is the latest iPhone out right now?\n1. iPhone 14\n2. iPhone 15\n3. iPhone 12\n4. iPhone 13"));
+				q3 = parseInt(prompt("What is latest windows version?\n1. windows 8\n2. windows 12\n3. windows 11\n4. windows 10"));
+				q4 = parseInt(prompt("What is latest android version?\n1. 10\n2. 12\n3. 11\n4. 13"));
+				q5 = parseInt(prompt("Who is amazon founder?\n1. Bill Gates\n2. Mark Zuckerberg\n3. Jack Ma\n4. Jeff Bezos"));
+				
+				//q1
+				myTable.rows[1].cells[0].innerHTML = 'What is the newest version of PlayStation?';
+				myTable.rows[1].cells[1].innerHTML = 'PS5';
+				if (isNaN(q1) || q1 < 1 || q1 > 4) {
+					myTable.rows[1].cells[2].innerHTML = 'Invalid Answer';
+					myTable.rows[1].cells[2].bgColor = "#ff944d";//orange
+				}else if(q1==2){
+					score = score + 2;
+					myTable.rows[1].cells[2].innerHTML = 'Correct';
+					myTable.rows[1].cells[2].bgColor = "lightgreen";
+				}
+				else{
+					score = score - 1;
+					myTable.rows[1].cells[2].innerHTML = 'Incorrect';
+					myTable.rows[1].cells[2].bgColor = "#ff4d4d";//red
+				}
+				
+				
+				//q2
+				myTable.rows[2].cells[0].innerHTML = 'What is the latest iPhone out right now?';
+				myTable.rows[2].cells[1].innerHTML = 'iPhone 13';
+				if (isNaN(q2) || q2 < 1 || q2 > 4) {
+					myTable.rows[2].cells[2].innerHTML = 'Invalid Answer';
+					myTable.rows[2].cells[2].bgColor = "#ff944d";//orange
+				}else if(q2==4){
+					score = score + 2;
+					myTable.rows[2].cells[2].innerHTML = 'Correct';
+					myTable.rows[2].cells[2].bgColor = "lightgreen";
+				}
+				else{
+					score = score - 1;
+					myTable.rows[2].cells[2].innerHTML = 'Inorrect';
+					myTable.rows[2].cells[2].bgColor = "#ff4d4d";//red
+				}
+				
+				//q3
+				myTable.rows[3].cells[0].innerHTML = 'What is latest windows version?';
+				myTable.rows[3].cells[1].innerHTML = 'windows 11';
+				if (isNaN(q3) || q3 < 1 || q3 > 4) {
+					myTable.rows[3].cells[2].innerHTML = 'Invalid Answer';
+					myTable.rows[3].cells[2].bgColor = "#ff944d";//orange
+				}else if(q3==3){
+					score = score + 2;
+					myTable.rows[3].cells[2].innerHTML = 'Correct';
+					myTable.rows[3].cells[2].bgColor = "lightgreen";
+				}
+				else{
+					score = score - 1;
+					myTable.rows[3].cells[2].innerHTML = 'Inorrect';
+					myTable.rows[3].cells[2].bgColor = "#ff4d4d";//red
+				}
+				
+				//q4
+				myTable.rows[4].cells[0].innerHTML = 'What is latest android version?';
+				myTable.rows[4].cells[1].innerHTML = '12';
+				if (isNaN(q4) || q4 < 1 || q4 > 4) {
+					myTable.rows[4].cells[2].innerHTML = 'Invalid Answer';
+					myTable.rows[4].cells[2].bgColor = "#ff944d";//orange
+				}else if(q4==2){
+					score = score + 2;
+					myTable.rows[4].cells[2].innerHTML = 'Correct';
+					myTable.rows[4].cells[2].bgColor = "lightgreen";
+				}
+				else{
+					score = score - 1;
+					myTable.rows[4].cells[2].innerHTML = 'Inorrect';
+					myTable.rows[4].cells[2].bgColor = "#ff4d4d";//red
+				}
+				
+				//q5
+				myTable.rows[5].cells[0].innerHTML = 'Who is amazon founder?';
+				myTable.rows[5].cells[1].innerHTML = 'Jeff Bezos';
+				if (isNaN(q5) || q5 < 1 || q5 > 4) {
+					myTable.rows[5].cells[2].innerHTML = 'Invalid Answer';
+					myTable.rows[5].cells[2].bgColor = "#ff944d";//orange
+				}else if(q5==4){
+					score = score + 2;
+					myTable.rows[5].cells[2].innerHTML = 'Correct';
+					myTable.rows[5].cells[2].bgColor = "lightgreen";
+				}
+				else{
+					score = score - 1;
+					myTable.rows[5].cells[2].innerHTML = 'Inorrect';
+					myTable.rows[5].cells[2].bgColor = "#ff4d4d";//red
+				}
+				
+				//select badge
+				if (score > 8){
+					alert("Congratulation! You have earned "+score+" points with a Gold Badge");
+				}else if(score > 5){
+					alert("Congratulation! You have earned "+score+" points with a Silver Badge");
+				}else{
+					alert("Congratulation! You have earned "+score+" points with a Bronze Badge");
+				}
+			}
+			
+		</script>
+		</head>
+	<body>
+		<div id="container">
+			<!-- ---------------------- Header ---------------------- -->
+			<header>
+			<table align="center" width=100%><tr>
+				<td rowspan=2><img src = "Logo.png" class="logo" alt="logo"></td>
+				<td><h1>BuyAnything.com</h1></td></tr>
+				<tr><td><div class="navigationBar">
+					<a href="Main.html">Main</a>
+					<a href="gallerypage.html">Gallery</a>
+					<a href="Page.html">Buy Products</a>
+					<a href="group members.html">About Us</a>
+					<a href="Quiz.html" class="active">Quiz</a>
+					<a href="Comment.html">Rate Us</a>
+					<div class="search-container">
+						<form action="/action_page.php">
+						  <input type="text" placeholder="Search.." name="search">
+						  <button type="submit"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+				</div></td>
+				</tr></table>
+				<div id ="title">
+					<h2>Take a Quiz!...</h2>
+				</div>
+			</header>
+			<!-- ---------------------- Quiz ---------------------- -->
+			<div id="container">
+				<form align="center">
+				<input type="button" value="Start Quiz"  onclick="startQuiz(this.form);">
+				</form>
+				<table id="myTable" border=1 align="center">
+					<tr><th>Question</th><th>Correct Answer</th><th>Your Answer status</th></tr>
+					<tr><td>1</td><td></td><td></td></tr>
+					<tr><td>2</td><td></td><td></td></tr>
+					<tr><td>3</td><td></td><td></td></tr>
+					<tr><td>4</td><td></td><td></td></tr>
+					<tr><td>5</td><td></td><td></td></tr>
+				</table>
+			</div>
+			<!-- ---------------------- Footer ---------------------- -->
+			<footer>
+				<table width=100%><tr>
+				<td>
+					<img src = "Logo.png" class="logo" alt="logo">
+					<h4>Contact</h4>
+					<p><strong>Address: </strong>57 Ramakrishna Rd, Colombo</p>
+					<P><strong>Phone: </strong>+94 766 760 760 / +94 766 760 760</p>
+					<P><strong>Hours: </strong>9.00 - 18.00, Mon - Fri</p>
+					<P><strong>Follow Us</strong></p>
+					<!-- Add follow icons -->
+					<a href="#facebook" class="fa fa-facebook"></a>
+					<a href="#twitter" class="fa fa-twitter"></a>
+					<a href="#instagram" class="fa fa-instagram"></a>
+					<a href="#pinterest" class="fa fa-pinterest"></a>
+				</td>
+				<td class="footerLink">
+					<h4>About</h4>
+					<a href="#">About Us</a><br>
+					<a href="#">Delivery Information</a><br>
+					<a href="#">Privacy Policy</a><br>
+					<a href="#">Terms & Condition</a><br>
+					<a href="#">Contact Us</a><br>
+					<a href="page editor Ridmika.html"> More information about page editor</a>
+				</td>
+				<td class="footerLink">
+					<h4>My Account</h4>
+					<a href="#">Sign In</a><br>
+					<a href="#">View Cart</a><br>
+					<a href="#">My Wishlist</a><br>
+					<a href="#">Track My Order</a><br>
+					<a href="#">Help</a>
+				</td>
+				<td>
+					<h4>Secured Payment Gateways</h4>
+					<img src = "visa.png" class="payment" alt="visa">
+					<img src = "american-express.png" class="payment" alt="american-express">
+					<img src = "discover.png" class="payment" alt="discover">
+					<img src = "paypal.png" class="payment" alt="paypal">
+					<img src = "maestro.png" class="payment" alt="maestro">
+				</td>
+				</table></tr>
+			</footer>
+		</div>
+				
+	</body>
+	</html>
